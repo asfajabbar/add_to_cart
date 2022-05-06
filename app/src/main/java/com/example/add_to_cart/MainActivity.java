@@ -1,4 +1,5 @@
 package com.example.add_to_cart;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -6,6 +7,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.add_to_cart.adapter.MyEatAdapter;
@@ -110,9 +112,11 @@ public class MainActivity extends AppCompatActivity implements IEatLoadListener,
         cartLoadListener = this;
 
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        recyclerCake.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerCake.setLayoutManager(linearLayoutManager);
         recyclerCake.addItemDecoration(new SpaceItemDecoration());
+
+        btn_cart.setOnClickListener(v-> startActivity(new Intent(this, CartActivity.class)));
     }
 
     @Override
