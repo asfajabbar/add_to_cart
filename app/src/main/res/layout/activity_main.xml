@@ -5,11 +5,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
-    android:id="@+id/mainlayout">
+    android:id="@+id/mainlayout"
+    android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/panel"
-        android:background="@color/teal_200"
+        android:background="#F498AD"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize">
@@ -31,13 +32,15 @@
             android:layout_marginLeft="130dp"
             android:text="MENU"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/white"/>
 
 
         <FrameLayout
             android:id="@+id/btn_cart"
             android:layout_width="wrap_content"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="75dp"
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/cart"
@@ -46,19 +49,23 @@
                 android:src="@drawable/cart"
                 android:layout_alignParentRight="true"
                 android:layout_gravity="center_vertical"
+
                 />
             <com.nex3z.notificationbadge.NotificationBadge
                 android:id="@+id/badge"
-                android:layout_width="30dp"
+                android:layout_width="20dp"
                 android:layout_height="30dp"
+                android:layout_alignTop="@id/cart"
                 android:layout_marginLeft="10dp"
-                app:nbMaxTextLength="2"
                 android:layout_toRightOf="@id/cart"
-                android:layout_alignTop= "@id/cart"
+                app:nbMaxTextLength="2"
 
 
                 />
+
         </FrameLayout>
+
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Add_to_cart">
         <activity
+            android:name=".Confirm_order"
+            android:exported="false" />
+        <activity
             android:name=".CartActivity"
             android:exported="false" />
         <activity

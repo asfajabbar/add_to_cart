@@ -73,7 +73,7 @@ public class MyEatAdapter extends RecyclerView.Adapter<MyEatAdapter.MyEatViewHol
         DatabaseReference userCart= FirebaseDatabase
                 .getInstance()
                 .getReference("Cart")
-        .child("UNIQUE_USER_ID");
+        .child("UNIQUE_USER_ID"); // user data aye ga
         userCart.child(cakeModel.getKey()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -95,6 +95,7 @@ public class MyEatAdapter extends RecyclerView.Adapter<MyEatAdapter.MyEatViewHol
                 else //if no item in cart
                 {
                     CartModel cartModel = new CartModel();
+                    //CartModel.setUserName(userModel).getName());
                     cartModel.setName(cakeModel.getName());
                     cartModel.setImage(cakeModel.getImage());
                     cartModel.setKey((cakeModel.getKey()));

@@ -79,12 +79,13 @@ public class MainActivity extends AppCompatActivity implements IEatLoadListener,
         init();
         loadCakeFromFirebase();
         countCartItem();
+        //getActionBar().hide();
     }
 
     private void loadCakeFromFirebase() {
 
         List<CakeModel> cakeModels = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference("Drink")
+        FirebaseDatabase.getInstance().getReference("Baskin Robins")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -116,7 +117,9 @@ public class MainActivity extends AppCompatActivity implements IEatLoadListener,
         recyclerCake.setLayoutManager(linearLayoutManager);
         recyclerCake.addItemDecoration(new SpaceItemDecoration());
 
-        btn_cart.setOnClickListener(v-> startActivity(new Intent(this, CartActivity.class)));
+        btn_cart.setOnClickListener(v-> {
+            startActivity(new Intent(this, CartActivity.class));
+        });
     }
 
     @Override

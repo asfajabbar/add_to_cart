@@ -1,12 +1,17 @@
 package com.example.add_to_cart;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,7 +47,8 @@ public class CartActivity extends AppCompatActivity implements ICartLoadListener
     ImageView btnBack;
     @BindView(R.id.txt_cart)
     TextView txtcart;
-
+    @BindView((R.id.txt_next))
+     ImageView txt_next;
     ICartLoadListener cartLoadListener;
     @Override
     protected void onStart() {
@@ -71,9 +77,11 @@ public class CartActivity extends AppCompatActivity implements ICartLoadListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        //getActionBar().hide();
 
         init();
         loadCartFromFirebase();
+
     }
 
     private void loadCartFromFirebase() {
@@ -117,6 +125,10 @@ public class CartActivity extends AppCompatActivity implements ICartLoadListener
         recyclercart.addItemDecoration(new DividerItemDecoration(this, layoutManager.getOrientation()));
 
         btnBack.setOnClickListener(v -> finish());
+        txt_next.setOnClickListener(v -> {
+            startActivity(new Intent(CartActivity.this, Confirm_order.class));
+                });
+
     }
 
     @Override
@@ -126,7 +138,7 @@ public class CartActivity extends AppCompatActivity implements ICartLoadListener
         {
             sum+=cartModel.getTotal_price();
         }
-        txtcart.setText(new StringBuilder("RS").append(sum));
+        txtcart.setText(new StringBuilder("Rs: ").append(sum));
         MyCartAdapter myCartAdapter = new MyCartAdapter(this, cartModelList);
         recyclercart.setAdapter(myCartAdapter);
     }

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="20dp"
     app:cardElevation="12dp"
     android:padding="8dp"
+
     >
 
     <LinearLayout
@@ -14,7 +16,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
        android:weightSum="5"
-        android:padding="16dp" >
+        android:padding="16dp"
+        android:background="@color/white"
+
+        >
         <ImageView
             android:id="@+id/imageview"
             android:layout_width="0dp"
@@ -27,13 +32,12 @@
             android:weightSum="5"
             android:layout_weight="4"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+           >
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
-
-                >
+                android:layout_weight="4">
 
                 <TextView
                     android:id="@+id/txt_Name"
@@ -44,7 +48,9 @@
                     android:layout_gravity="start"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="32dp"
+                    android:fontFamily="sans-serif-black"
                     android:text="Name"
+                    android:textColor="@color/black"
                     android:textSize="30dp"
                     android:textStyle="bold" />
 
@@ -52,14 +58,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_alignParentBottom="true">
+                    android:layout_alignParentBottom="true"
+                  >
 
                     <ImageView
                         android:id="@+id/btn_minus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_baseline_minimize_24" />
+                        android:src="@drawable/ic_baseline_minimize_24"
+                        app:tint="@color/black" />
 
                     <TextView
                         android:id="@+id/txt_quantity"
@@ -70,6 +78,8 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:text="1"
+                        android:textColor="@color/black"
+                        android:fontFamily="sans-serif-black"
                         />
                     <ImageView
                         android:id="@+id/btn_plus"
@@ -77,7 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        />
+                        app:tint="@color/black" />
 
                 </LinearLayout>
 
@@ -85,13 +95,14 @@
                     android:id="@+id/txt_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif-black"
                     android:text="RS 1"
-                    />
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
             <ImageView
@@ -101,7 +112,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                />
+
+                app:tint="@color/black" />
 
 
 
